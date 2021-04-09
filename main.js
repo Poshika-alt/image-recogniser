@@ -16,14 +16,14 @@ function snapshot(){
 }
 
 console.log('ml5 version',ml5.version);
-classifier=ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/-TxQGuJqm/model.json',modelLoaded);
+classifier=ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/_W-iKjEmq/model.json',modelLoaded);
 
 function modelLoaded(){
     console.log('model loaded');
 }
 
 function check(){
-    img=document.getElementById('capture_image');
+    img=document.getElementById('captured_image');
     classifier.classify(img,gotResult);
 }
 
@@ -33,6 +33,6 @@ function gotResult(error,results){
   }else{
       console.log(results);
       document.getElementById("result_object_name").innerHTML=results[0].label;
-      document.getElementById("result_object_name").innerHTML=results[0].confidence.toFixed(3);
+      document.getElementById("result_object_accuracy").innerHTML=results[0].confidence.toFixed(3);
   }
 }
